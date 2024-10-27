@@ -3,13 +3,19 @@ import { Button } from 'src/ui/button';
 
 import clsx from 'clsx';
 import styles from './ArticleParamsForm.module.scss';
+import { ReactNode } from 'react';
 
-export const ArticleParamsForm = () => {
+type ArticleParamsFormProps = {
+	children: ReactNode;
+};
+
+export const ArticleParamsForm = ({ children }: ArticleParamsFormProps) => {
 	return (
 		<>
 			<ArrowButton isOpen={true} onClick={() => {}} />
 			<aside className={clsx(styles.container, styles.container_open)}>
 				<form className={styles.form}>
+					<>{children}</>
 					<div className={styles.bottomContainer}>
 						<Button title='Сбросить' htmlType='reset' type='clear' />
 						<Button title='Применить' htmlType='submit' type='apply' />

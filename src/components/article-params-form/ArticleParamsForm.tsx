@@ -68,11 +68,16 @@ export const ArticleParamsForm = ({
 	};
 
 	useEffect(() => {
-		document.addEventListener('mousedown', handleClickOutside);
+		if (isMenuOpen) {
+			document.addEventListener('mousedown', handleClickOutside);
+		} else {
+			document.removeEventListener('mousedown', handleClickOutside);
+		}
+
 		return () => {
 			document.removeEventListener('mousedown', handleClickOutside);
 		};
-	}, []);
+	}, [isMenuOpen]);
 
 	return (
 		<>
